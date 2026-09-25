@@ -1,0 +1,426 @@
+/* =========================================
+   PORTAFOLIO ANDREA FERNÁNDEZ
+   ESTILO VAPORWAVE
+   ========================================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+
+    /* Fondo vaporwave */
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 255, 0.25), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.25), transparent 30%),
+        linear-gradient(135deg, #12002b, #24004d 45%, #05001a);
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   EFECTO DE CUADRÍCULA VAPORWAVE
+   ========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255, 0, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.12) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    transform: perspective(500px) rotateX(55deg) scale(2);
+
+    transform-origin: bottom;
+
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
+
+.main-content {
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   TÍTULO
+   ========================================= */
+
+.title {
+    text-align: center;
+    margin-bottom: 35px;
+
+    animation: aparecer 1s ease forwards;
+}
+
+
+/* Nombre principal */
+
+.title h1 {
+    font-family: 'Amarante', serif;
+
+    font-size: clamp(3rem, 8vw, 5rem);
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00ffff;
+
+    margin-bottom: 10px;
+}
+
+
+/* Subtítulo */
+
+.title p {
+    font-size: 0.95rem;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #d9c7ff;
+
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+
+/* =========================================
+   NAVEGACIÓN
+   ========================================= */
+
+nav {
+    width: 100%;
+}
+
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   BOTONES DE PROYECTOS
+   ========================================= */
+
+.item-list {
+    width: 100%;
+}
+
+
+.item-list a {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 15px 25px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    /* Cristal */
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Sombra */
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 0 15px rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Línea brillante que atraviesa el botón */
+
+.item-list a::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    transition: left 0.6s ease;
+}
+
+
+/* =========================================
+   HOVER DE LOS BOTONES
+   ========================================= */
+
+.item-list a:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    background: rgba(255, 0, 255, 0.15);
+
+    border-color: #ff4dff;
+
+    box-shadow:
+        0 0 10px rgba(255, 0, 255, 0.5),
+        0 0 25px rgba(255, 0, 255, 0.35),
+        0 15px 35px rgba(0, 0, 0, 0.4);
+
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 15px #ff00ff;
+}
+
+
+/* Animación del brillo */
+
+.item-list a:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================
+   CLICK
+   ========================================= */
+
+.item-list a:active {
+    transform: translateY(-2px) scale(0.98);
+
+    box-shadow:
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 25px rgba(255, 0, 255, 0.5);
+}
+
+
+/* =========================================
+   COLORES DIFERENTES PARA CADA PROYECTO
+   ========================================= */
+
+/* Proyecto 1 */
+
+.item-list:nth-child(1) a:hover {
+    border-color: #ff4dff;
+
+    box-shadow:
+        0 0 15px #ff00ff,
+        0 0 35px rgba(255, 0, 255, 0.5);
+}
+
+
+/* Proyecto 2 */
+
+.item-list:nth-child(2) a:hover {
+    border-color: #00ffff;
+
+    background: rgba(0, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px rgba(0, 255, 255, 0.5);
+}
+
+
+/* Proyecto 3 */
+
+.item-list:nth-child(3) a:hover {
+    border-color: #a855f7;
+
+    background: rgba(168, 85, 247, 0.15);
+
+    box-shadow:
+        0 0 15px #a855f7,
+        0 0 35px rgba(168, 85, 247, 0.5);
+}
+
+
+/* Proyecto 4 */
+
+.item-list:nth-child(4) a:hover {
+    border-color: #ff7de9;
+
+    background: rgba(255, 125, 233, 0.12);
+
+    box-shadow:
+        0 0 15px #ff7de9,
+        0 0 35px rgba(255, 125, 233, 0.5);
+}
+
+
+/* =========================================
+   ANIMACIÓN DE ENTRADA
+   ========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   ENTRADA DE LOS BOTONES
+   ========================================= */
+
+.item-list {
+    opacity: 0;
+
+    animation: subir 0.7s ease forwards;
+}
+
+
+.item-list:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+
+.item-list:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+
+.item-list:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+
+.item-list:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+
+@keyframes subir {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 30px 18px;
+    }
+
+    .title h1 {
+        font-size: 3rem;
+    }
+
+    .title p {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .item-list a {
+        min-height: 60px;
+    }
+
+}
